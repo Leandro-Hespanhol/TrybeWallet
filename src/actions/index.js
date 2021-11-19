@@ -3,7 +3,6 @@ export const LOGIN = 'LOGIN';
 export const REQUEST_API = 'REQUEST_API';
 export const GET_CURRENCY = 'GET_CURRENCY';
 
-// export const requestAPI = () => ({ type: REQUEST_API });
 export const getCurrency = (currency) => ({ type: GET_CURRENCY, currency });
 
 export const toLogin = (email) => ({

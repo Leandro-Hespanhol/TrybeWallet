@@ -16,7 +16,7 @@ export default function wallet(state = INITIAL_STATE, action) {
   switch (action.type) {
   case GET_CURRENCY:
     return {
-      ...state, moeda: Object.keys(action.currency).filter((elem) => elem !== 'USDT'),
+      ...state, moeda: 'USD',
     };
   default:
     return state;
