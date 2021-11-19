@@ -76,6 +76,7 @@ describe('1 - Crie uma página inicial de login com os seguintes campos e caract
   test('Salve o email no estado da aplicação, com a chave email, assim que o usuário logar.', () => {
     const { store } = renderWithRouterAndStore(<App />);
     const email = screen.getByTestId(EMAIL_INPUT_TEST_ID);
+
     const senha = screen.getByTestId(PASSWORD_INPUT_TEST_ID);
     const button = screen.getByText(/Entrar/i);
 
@@ -88,6 +89,7 @@ describe('1 - Crie uma página inicial de login com os seguintes campos e caract
 
   test('A rota deve ser mudada para \'/carteira\' após o clique no botão.', () => {
     const { history } = renderWithRouterAndStore(<App />);
+
     const email = screen.getByTestId(EMAIL_INPUT_TEST_ID);
     const senha = screen.getByTestId(PASSWORD_INPUT_TEST_ID);
     const button = screen.getByText(/Entrar/i);
