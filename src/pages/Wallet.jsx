@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import categoryArray from '../data/categoryArray';
 import methodArray from '../data/methodArray';
+import { fetchAPI } from '../actions';
 import './wallet.css';
 
 class Wallet extends React.Component {
@@ -14,8 +15,8 @@ class Wallet extends React.Component {
       moeda: 'USD',
       metodo: 'Dinheiro',
       categoria: 'Alimentação',
-      // descricao: '',
-      // expenses: [],
+      descricao: '',
+      expenses: [],
     };
     this.onInputChange = this.onInputChange.bind(this);
     this.moedaValor = this.moedaValor.bind(this);
@@ -30,11 +31,17 @@ class Wallet extends React.Component {
   }
 
   addExpense() {
-    return <button type="button">Adicionar despesa</button>;
+    const { currency } = this.props;
+    return (
+      <button type="button" onClick={ () => currency() }>
+        Adicionar despesa
+      </button>
+    );
   }
 
   moedaValor() {
     const { valor, moeda } = this.state;
+    const { isLoading } = this.props;
     return (
       <div>
         <label htmlFor="value-input">
@@ -52,7 +59,7 @@ class Wallet extends React.Component {
           Moeda:
           <select
             name="moeda"
-            value={ moeda }
+            value={ !isLoading ? 'carregando' : moeda }
             id="currency-input"
             data-testid="currency-input"
             onChange={ this.onInputChange }
@@ -78,8 +85,10 @@ class Wallet extends React.Component {
             data-testid="method-input"
             onChange={ this.onInputChange }
           >
-            {methodArray.map((elem, idx) => (
-              <option key={ idx } value={ elem }>{elem}</option>
+            {methodArray.map((method, idx) => (
+              <option key={ idx } value={ method }>
+                {method}
+              </option>
             ))}
           </select>
         </label>
@@ -92,8 +101,10 @@ class Wallet extends React.Component {
             data-testid="tag-input"
             onChange={ this.onInputChange }
           >
-            {categoryArray.map((elem, idx) => (
-              <option key={ idx } value={ elem }>{elem}</option>
+            {categoryArray.map((category, idx) => (
+              <option key={ idx } value={ category }>
+                {category}
+              </option>
             ))}
           </select>
         </label>
@@ -113,12 +124,12 @@ class Wallet extends React.Component {
 
   render() {
     const { email } = this.props;
+    const { moeda } = this.state;
+    console.log('moeda', moeda);
     return (
       <div>
         <header>
-          <div data-testid="email-field">
-            {`Email: ${email}`}
-          </div>
+          <div data-testid="email-field">{`Email: ${email}`}</div>
           <div>
             Despesa Total:
             {' '}
@@ -136,8 +147,14 @@ const mapStateToProps = (state) => ({
   email: state.user.email,
 });
 
-export default connect(mapStateToProps)(Wallet);
+const mapDispatchToProps = (dispatch) => ({
+  currency: (curr) => dispatch(fetchAPI(curr)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Wallet);
 
 Wallet.propTypes = {
   email: PropTypes.string.isRequired,
+  currency: PropTypes.func.isRequired,
+  isLoading: PropTypes.bool.isRequired,
 };
