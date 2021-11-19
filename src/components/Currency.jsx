@@ -2,8 +2,14 @@ import React, { Component } from 'react';
 
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { fetchAPI } from '../actions';
 
 class Currency extends Component {
+  async componentDidMount() {
+    const { currencyFetch } = this.props;
+    await currencyFetch();
+  }
+
   render() {
     const { moeda } = this.props;
     return (
@@ -36,8 +42,13 @@ const mapStateToProps = (state) => ({
   moeda: state.wallet.moeda,
 });
 
-export default connect(mapStateToProps)(Currency);
+const mapDispatchToProps = (dispatch) => ({
+  currencyFetch: () => dispatch(fetchAPI()),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Currency);
 
 Currency.propTypes = {
   moeda: PropTypes.string.isRequired,
+  currencyFetch: PropTypes.func.isRequired,
 };
