@@ -33,15 +33,6 @@ class Wallet extends React.Component {
     });
   }
 
-  // addExpense() {
-  //   const { currency } = this.props;
-  //   return (
-  //     <button type="button" onClick={ () => currency() }>
-  //       Adicionar despesa
-  //     </button>
-  //   );
-  // }
-
   // Object.keys(action.currency).filter((elem) => elem !== 'USDT')
   // fetchCurr() {
   //   fetch('https://economia.awesomeapi.com.br/json/all')

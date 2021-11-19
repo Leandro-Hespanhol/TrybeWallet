@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import PropTypes from 'prop-types';
+
 export default class Currency extends Component {
   render() {
     const { moeda } = this.props;
@@ -12,7 +14,7 @@ export default class Currency extends Component {
             value={ moeda }
             id="currency-input"
             data-testid="currency-input"
-            onChange={ this.onInputChange }
+            // onChange={ this.onInputChange }
           >
             <option value="Moeda">Moeda</option>
             {/* {moeda.map((currency) => <option> {currency} </option>)} */}
