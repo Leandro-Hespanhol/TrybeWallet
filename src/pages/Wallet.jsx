@@ -33,12 +33,6 @@ class Wallet extends React.Component {
     });
   }
 
-  // Object.keys(action.currency).filter((elem) => elem !== 'USDT')
-  // fetchCurr() {
-  //   fetch('https://economia.awesomeapi.com.br/json/all')
-  //     .then((res) => res.json())
-  //     .then((curr) => Object.keys(curr).filter((elem) => elem !== 'USDT'));
-
   render() {
     const { email, currency } = this.props;
     return (
@@ -69,5 +63,5 @@ export default connect(mapStateToProps, mapDispatchToProps)(Wallet);
 
 Wallet.propTypes = {
   email: PropTypes.string.isRequired,
-  currency: PropTypes.string.isRequired,
+  currency: PropTypes.func.isRequired,
 };

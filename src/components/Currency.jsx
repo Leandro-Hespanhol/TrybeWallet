@@ -5,9 +5,21 @@ import { connect } from 'react-redux';
 import { fetchAPI } from '../actions';
 
 class Currency extends Component {
+  constructor() {
+    super();
+    this.onInputChange = this.onInputChange.bind(this);
+  }
+
   async componentDidMount() {
     const { currencyFetch } = this.props;
     await currencyFetch();
+  }
+
+  onInputChange({ target }) {
+    const { name, value } = target;
+    this.setState({
+      [name]: value,
+    });
   }
 
   render() {
@@ -18,14 +30,13 @@ class Currency extends Component {
           Moeda:
           <select
             name="moeda"
-            value={ moeda }
+            // value={ moeda }
             id="currency-input"
             data-testid="currency-input"
-            // onChange={ this.onInputChange }
+            onChange={ this.onInputChange }
           >
-            {/* <option value="Moeda">Moeda</option> */}
             {moeda.map((currency) => (
-              <option key={ currency }>
+              <option key={ currency } value={ currency }>
                 {' '}
                 { currency }
                 {' '}
@@ -49,6 +60,13 @@ const mapDispatchToProps = (dispatch) => ({
 export default connect(mapStateToProps, mapDispatchToProps)(Currency);
 
 Currency.propTypes = {
-  moeda: PropTypes.string.isRequired,
+  moeda: PropTypes.arrayOf(
+    PropTypes.shape({
+    }),
+  ),
   currencyFetch: PropTypes.func.isRequired,
+};
+
+Currency.defaultProps = {
+  moeda: [],
 };
