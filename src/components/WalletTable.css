@@ -14,13 +14,13 @@ table {
   width: 99%;
 }
 
-.tr-class th{
+.tr-class th {
   display: flex;
   justify-content: center;
   width: 10%;
 }
 
-.body-tr{
+.body-tr {
   border: 2px solid black;
   border-radius: 10px;
   display: flex;
@@ -29,7 +29,7 @@ table {
   width: 99%;
 }
 
-.body-tr td{
+.body-tr td {
   display: flex;
   justify-content: center;
   width: 10%;
