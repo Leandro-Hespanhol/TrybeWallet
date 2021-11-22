@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
-export default class Category extends Component {
+class Category extends Component {
   constructor() {
     super();
     this.state = {
@@ -10,17 +12,17 @@ export default class Category extends Component {
 
   render() {
     const { categories } = this.state;
-    // const { onInputChange } = this.props;
+    const { onInputChange } = this.props;
     return (
       <div>
         <label htmlFor="tag-input">
           Categoria:
           <select
-            name="categoria"
+            name="category"
             // value={ categories }
             id="tag-input"
             data-testid="tag-input"
-            // onChange={ onInputChange }
+            onChange={ onInputChange }
           >
             {categories.map((category, idx) => (
               <option key={ idx } value={ category }>
@@ -33,3 +35,13 @@ export default class Category extends Component {
     );
   }
 }
+
+const mapStateToProps = (state) => ({
+  category: state.wallet.category,
+});
+
+export default connect(mapStateToProps)(Category);
+
+Category.propTypes = {
+  onInputChange: PropTypes.func.isRequired,
+};

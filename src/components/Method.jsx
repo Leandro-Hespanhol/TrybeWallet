@@ -1,27 +1,30 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import arrayMethods from '../data/arrayMethods';
 
-export default class Method extends Component {
-  constructor() {
-    super();
-    this.state = {
-      methods: ['Dinheiro', 'Cartão de crédito', 'Cartão de débito'],
-    };
-  }
+class Method extends Component {
+  // constructor() {
+  //   super();
+  //   this.state = {
+  //     methods: ['Dinheiro', 'Cartão de crédito', 'Cartão de débito'],
+  //   };
+  // }
 
   render() {
-    const { methods } = this.state;
+    const { onInputChange } = this.props;
     return (
       <div>
-        <label htmlFor="metodo">
+        <label htmlFor="method">
           Método de pagamento
           <select
-            name="metodo"
+            name="method"
             // value={ metodo }
             id="Método de pagamento"
             data-testid="method-input"
-            // onChange={ this.onInputChange }
+            onChange={ onInputChange }
           >
-            {methods.map((method, idx) => (
+            {arrayMethods.map((method, idx) => (
               <option key={ idx } value={ method }>
                 {method}
               </option>
@@ -32,3 +35,13 @@ export default class Method extends Component {
     );
   }
 }
+
+const mapStateToProps = (state) => ({
+  method: state.wallet.method,
+});
+
+export default connect(mapStateToProps)(Method);
+
+Method.propTypes = {
+  onInputChange: PropTypes.func.isRequired,
+};

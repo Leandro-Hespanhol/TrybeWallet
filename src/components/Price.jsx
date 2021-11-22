@@ -1,21 +1,34 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
-export default class Price extends Component {
+class Price extends Component {
   render() {
+    const { onInputChange } = this.props;
     return (
       <div>
         <label htmlFor="value-input">
           Valor:
           <input
-            name="valor"
-            // value={ valor }
+            name="price"
+            // value={ price }
             type="number"
             data-testid="value-input"
             id="value-input"
-            // onChange={ this.onInputChange }
+            onChange={ onInputChange }
           />
         </label>
       </div>
     );
   }
 }
+
+const mapStateToProps = (state) => ({
+  price: state.wallet.price,
+});
+
+export default connect(mapStateToProps)(Price);
+
+Price.propTypes = {
+  onInputChange: PropTypes.func.isRequired,
+};

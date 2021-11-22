@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
-export default class ExpenseButton extends Component {
+class ExpenseButton extends Component {
   render() {
-    const { currency } = this.props;
+    const { currency, state } = this.props;
+    console.log(state);
     return (
       <div>
         <button type="button" onClick={ () => currency() }>
@@ -15,6 +17,20 @@ export default class ExpenseButton extends Component {
   }
 }
 
+const mapStateToProps = (state) => ({
+  state: state.wallet,
+});
+
+export default connect(mapStateToProps)(ExpenseButton);
+
 ExpenseButton.propTypes = {
   currency: PropTypes.func.isRequired,
+  state: PropTypes.objectOf(
+    PropTypes.shape({
+    }),
+  ),
+};
+
+ExpenseButton.defaultProps = {
+  state: {},
 };

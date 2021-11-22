@@ -9,14 +9,18 @@ import Category from '../components/Category';
 import Description from '../components/Description';
 import Method from '../components/Method';
 import Price from '../components/Price';
-import ExpenseButton from '../components/ExpenseButton';
+// import ExpenseButton from '../components/ExpenseButton';
 import Header from '../components/Header';
 
 class Wallet extends React.Component {
   constructor() {
     super();
     this.state = {
-      // moeda: 'USD',
+      // price: 0,
+      // moeda: [],
+      // method: 'Dinheiro',
+      // category: 'Alimentação',
+      // description: '',
       // expenses: [],
     };
     this.onInputChange = this.onInputChange.bind(this);
@@ -39,12 +43,15 @@ class Wallet extends React.Component {
       <div>
         <Header email={ email } />
         <form action="GET" className="expenses-Form">
-          <Price />
-          <Currency />
-          <Method />
-          <Category />
-          <Description />
-          <ExpenseButton currency={ currency } />
+          <Price onInputChange={ this.onInputChange } />
+          <Currency onInputChange={ this.onInputChange } />
+          <Method onInputChange={ this.onInputChange } />
+          <Category onInputChange={ this.onInputChange } />
+          <Description onInputChange={ this.onInputChange } />
+          {/* <ExpenseButton currency={ currency } /> */}
+          <button type="button" onClick={ () => currency() }>
+            Adicionar despesa
+          </button>
         </form>
       </div>
     );

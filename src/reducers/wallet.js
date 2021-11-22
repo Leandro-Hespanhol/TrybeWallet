@@ -3,11 +3,11 @@
 import { GET_CURRENCY } from '../actions';
 
 const INITIAL_STATE = {
-  valor: 0,
+  price: 0,
   moeda: [],
-  metodo: 'Dinheiro',
-  categoria: 'Alimentação',
-  descricao: '',
+  method: 'Dinheiro',
+  category: 'Alimentação',
+  description: '',
   expenses: [],
 };
 
