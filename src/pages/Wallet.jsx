@@ -27,6 +27,7 @@ class Wallet extends React.Component {
     };
     this.onInputChange = this.onInputChange.bind(this);
     this.saveCurrencyButton = this.saveCurrencyButton.bind(this);
+    // this.generateExpense = this.generateExpense.bind(this);
   }
 
   componentDidMount() {
@@ -53,6 +54,7 @@ class Wallet extends React.Component {
       method,
       tag,
       exchangeRates: currencies });
+    // generateExpense();
 
     this.setState({
       id: id + 1,
