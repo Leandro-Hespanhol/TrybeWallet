@@ -10,7 +10,7 @@ class Price extends Component {
         <label htmlFor="value-input">
           Valor:
           <input
-            name="price"
+            name="value"
             // value={ price }
             type="number"
             data-testid="value-input"
@@ -24,7 +24,7 @@ class Price extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  price: state.wallet.price,
+  value: state.wallet.value,
 });
 
 export default connect(mapStateToProps)(Price);

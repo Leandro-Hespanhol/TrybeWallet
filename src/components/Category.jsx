@@ -37,7 +37,7 @@ class Category extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  category: state.wallet.category,
+  tag: state.wallet.tag,
 });
 
 export default connect(mapStateToProps)(Category);
