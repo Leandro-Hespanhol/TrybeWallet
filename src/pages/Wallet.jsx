@@ -11,6 +11,7 @@ import Description from '../components/Description';
 import Method from '../components/Method';
 import Price from '../components/Price';
 import Header from '../components/Header';
+import WalletTable from '../components/WalletTable';
 
 class Wallet extends React.Component {
   constructor() {
@@ -70,19 +71,21 @@ class Wallet extends React.Component {
     // console.log('state', ...(Object.values((expenses))));
     return (
       <div>
-        <span>{id}</span>
-        <Header email={ email } />
-        <form action="GET" className="expenses-Form">
-          <Price onInputChange={ this.onInputChange } value={ value } />
-          <Currency onInputChange={ this.onInputChange } />
-          <Method onInputChange={ this.onInputChange } />
-          <Category onInputChange={ this.onInputChange } tag={ tag } />
-          <Description onInputChange={ this.onInputChange } />
-          {/* <ExpenseButton currency={ currency } /> */}
-          <button type="button" onClick={ () => this.saveCurrencyButton() }>
-            Adicionar despesa
-          </button>
-        </form>
+        <div className="header-walletBar-div">
+          <span>{id}</span>
+          <Header email={ email } />
+          <form action="GET" className="expenses-Form">
+            <Price onInputChange={ this.onInputChange } value={ value } />
+            <Currency onInputChange={ this.onInputChange } />
+            <Method onInputChange={ this.onInputChange } />
+            <Category onInputChange={ this.onInputChange } tag={ tag } />
+            <Description onInputChange={ this.onInputChange } />
+            <button type="button" onClick={ () => this.saveCurrencyButton() }>
+              Adicionar despesa
+            </button>
+          </form>
+        </div>
+        <WalletTable />
       </div>
     );
   }
