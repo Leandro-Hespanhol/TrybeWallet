@@ -23,11 +23,9 @@ class Wallet extends React.Component {
       currency: 'USD',
       method: 'Dinheiro',
       tag: 'Alimentação',
-      // expenses: [],
     };
     this.onInputChange = this.onInputChange.bind(this);
     this.saveCurrencyButton = this.saveCurrencyButton.bind(this);
-    // this.generateExpense = this.generateExpense.bind(this);
   }
 
   componentDidMount() {
@@ -46,7 +44,6 @@ class Wallet extends React.Component {
     const { id, value, description, currency, method, tag } = this.state;
     const { currencies, expenseSaved, currencyFetch } = this.props;
     currencyFetch();
-    // console.log('savebtton', moeda);
     expenseSaved({ id,
       value,
       description,
@@ -54,7 +51,6 @@ class Wallet extends React.Component {
       method,
       tag,
       exchangeRates: currencies });
-    // generateExpense();
 
     this.setState({
       id: id + 1,
@@ -69,8 +65,6 @@ class Wallet extends React.Component {
   render() {
     const { email } = this.props;
     const { id, value, tag } = this.state;
-    // console.log('wallet', expenses[0]);
-    // console.log('state', ...(Object.values((expenses))));
     return (
       <div>
         <div className="header-walletBar-div">
