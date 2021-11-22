@@ -12,14 +12,14 @@ class Category extends Component {
 
   render() {
     const { categories } = this.state;
-    const { onInputChange } = this.props;
+    const { onInputChange, tag } = this.props;
     return (
       <div>
         <label htmlFor="tag-input">
           Categoria:
           <select
-            name="category"
-            // value={ categories }
+            name="tag"
+            value={ tag }
             id="tag-input"
             data-testid="tag-input"
             onChange={ onInputChange }
@@ -36,12 +36,13 @@ class Category extends Component {
   }
 }
 
-const mapStateToProps = (state) => ({
-  tag: state.wallet.tag,
-});
+// const mapStateToProps = (state) => ({
+//   tag: state.wallet.tag,
+// });
 
-export default connect(mapStateToProps)(Category);
+export default connect()(Category);
 
 Category.propTypes = {
   onInputChange: PropTypes.func.isRequired,
+  tag: PropTypes.string.isRequired,
 };

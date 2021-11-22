@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
-export default class Header extends Component {
+class Header extends Component {
   render() {
-    const { email } = this.props;
+    const { email, expenses } = this.props;
+    console.log(expenses);
     return (
       <div>
         <header>
@@ -21,6 +23,16 @@ export default class Header extends Component {
   }
 }
 
+const mapStateToProps = (state) => ({
+  expenses: state.wallet.expenses,
+});
+
+export default connect(mapStateToProps)(Header);
+
 Header.propTypes = {
   email: PropTypes.string.isRequired,
+  expenses: (PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.array,
+    PropTypes.object])).isRequired,
 };

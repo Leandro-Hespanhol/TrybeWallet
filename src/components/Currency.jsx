@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { fetchAPI } from '../actions';
+// import { fetchAPI } from '../actions';
 
 class Currency extends Component {
   constructor() {
@@ -11,8 +11,8 @@ class Currency extends Component {
   }
 
   async componentDidMount() {
-    const { currencyFetch } = this.props;
-    await currencyFetch();
+    // const { currencyFetch } = this.props;
+    // await currencyFetch();
   }
 
   onInputChange({ target }) {
@@ -23,7 +23,7 @@ class Currency extends Component {
   }
 
   render() {
-    const { moeda, onInputChange } = this.props;
+    const { currencies, onInputChange } = this.props;
     // console.log('currency', moeda);
     return (
       <div>
@@ -38,7 +38,7 @@ class Currency extends Component {
           >
             {/* <option value="" selected disabled hidden>Choose currency...</option> */}
             {/* Object.keys(action.currency).filter((elem) => elem !== 'USDT') */}
-            {Object.keys(moeda).filter((elem) => elem !== 'USDT')
+            {Object.keys(currencies).filter((elem) => elem !== 'USDT')
               .map((currency) => (
                 <option key={ currency } value={ currency }>
                   {' '}
@@ -54,24 +54,24 @@ class Currency extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  moeda: state.wallet.moeda,
+  currencies: state.wallet.currencies,
 });
 
-const mapDispatchToProps = (dispatch) => ({
-  currencyFetch: () => dispatch(fetchAPI()),
-});
+// const mapDispatchToProps = (dispatch) => ({
+//   currencyFetch: () => dispatch(fetchAPI()),
+// });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Currency);
+export default connect(mapStateToProps, null)(Currency);
 
 Currency.propTypes = {
-  moeda: (PropTypes.oneOfType([
+  currencies: (PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.array,
     PropTypes.object])),
-  currencyFetch: PropTypes.func.isRequired,
+  // currencyFetch: PropTypes.func.isRequired,
   onInputChange: PropTypes.func.isRequired,
 };
 
 Currency.defaultProps = {
-  moeda: [],
+  currencies: [],
 };

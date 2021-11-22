@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import PropTypes from 'prop-types';
-import { fetchAPI } from '../actions';
+import { fetchAPI, saveExpense } from '../actions';
 import './wallet.css';
 
 import Currency from '../components/Currency';
@@ -16,21 +16,21 @@ class Wallet extends React.Component {
   constructor() {
     super();
     this.state = {
-      id: -1,
+      id: 0,
       value: '0', // price
       description: '',
       currency: 'USD',
       method: 'Dinheiro',
       tag: 'Alimentação',
-      expenses: [],
+      // expenses: [],
     };
     this.onInputChange = this.onInputChange.bind(this);
     this.saveCurrencyButton = this.saveCurrencyButton.bind(this);
   }
 
-  async componentDidMount() {
+  componentDidMount() {
     const { currencyFetch } = this.props;
-    await currencyFetch();
+    currencyFetch();
   }
 
   onInputChange({ target }) {
@@ -41,36 +41,42 @@ class Wallet extends React.Component {
   }
 
   saveCurrencyButton() {
-    const { id, value, description, currency, method, tag, expenses } = this.state;
-    const { moeda } = this.props;
+    const { id, value, description, currency, method, tag } = this.state;
+    const { currencies, expenseSaved, currencyFetch } = this.props;
+    currencyFetch();
     // console.log('savebtton', moeda);
+    expenseSaved({ id,
+      value,
+      description,
+      currency,
+      method,
+      tag,
+      exchangeRates: currencies });
 
     this.setState({
       id: id + 1,
-      expenses: [...expenses, {
-        value,
-        description,
-        currency,
-        method,
-        tag,
-        exchangeRates: moeda },
-      ] });
+      value: '0',
+      description: '',
+      currency: 'USD',
+      method: 'Dinheiro',
+      tag: 'Alimentação',
+    });
   }
 
   render() {
     const { email } = this.props;
-    const { id, expenses } = this.state;
-    // console.log('wallet', moeda);
-    console.log('state', (expenses));
+    const { id, value, tag } = this.state;
+    // console.log('wallet', expenses[0]);
+    // console.log('state', ...(Object.values((expenses))));
     return (
       <div>
         <span>{id}</span>
         <Header email={ email } />
         <form action="GET" className="expenses-Form">
-          <Price onInputChange={ this.onInputChange } />
+          <Price onInputChange={ this.onInputChange } value={ value } />
           <Currency onInputChange={ this.onInputChange } />
           <Method onInputChange={ this.onInputChange } />
-          <Category onInputChange={ this.onInputChange } />
+          <Category onInputChange={ this.onInputChange } tag={ tag } />
           <Description onInputChange={ this.onInputChange } />
           {/* <ExpenseButton currency={ currency } /> */}
           <button type="button" onClick={ () => this.saveCurrencyButton() }>
@@ -84,11 +90,13 @@ class Wallet extends React.Component {
 
 const mapStateToProps = (state) => ({
   email: state.user.email,
-  moeda: state.wallet.moeda,
+  currencies: state.wallet.currencies,
+  expenses: state.wallet.expenses,
 });
 
 const mapDispatchToProps = (dispatch) => ({
   currencyFetch: () => dispatch(fetchAPI()),
+  expenseSaved: (obj) => dispatch(saveExpense(obj)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Wallet);
@@ -96,12 +104,13 @@ export default connect(mapStateToProps, mapDispatchToProps)(Wallet);
 Wallet.propTypes = {
   email: PropTypes.string.isRequired,
   currencyFetch: PropTypes.func.isRequired,
-  moeda: (PropTypes.oneOfType([
+  expenseSaved: PropTypes.func.isRequired,
+  currencies: (PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.array,
     PropTypes.object])),
 };
 
 Wallet.defaultProps = {
-  moeda: [],
+  currencies: [],
 };

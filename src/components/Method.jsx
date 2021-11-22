@@ -20,7 +20,7 @@ class Method extends Component {
           <select
             name="method"
             // value={ metodo }
-            id="Método de pagamento"
+            id="method"
             data-testid="method-input"
             onChange={ onInputChange }
           >

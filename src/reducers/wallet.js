@@ -3,25 +3,26 @@
 import { GET_CURRENCY, SAVE_EXPENSE } from '../actions';
 
 const INITIAL_STATE = {
-  price: 0,
-  moeda: [],
-  method: 'Dinheiro',
-  tag: 'Alimentação',
-  description: '',
+  // price: 0,
+  currencies: [],
+  // method: 'Dinheiro',
+  // tag: 'Alimentação',
+  // description: '',
   expenses: [],
 };
 
 export default function wallet(state = INITIAL_STATE, action) {
-  // console.log('walletAction', action.currency);
+  // console.log('walletAction', action.expenseObj);
+  // console.log('state', state);
   switch (action.type) {
   case GET_CURRENCY:
     return {
       // ...state, moeda: Object.keys(action.currency).filter((elem) => elem !== 'USDT'),
-      ...state, moeda: action.currency,
+      ...state, currencies: action.currency,
     };
   case SAVE_EXPENSE:
     return {
-      ...state,
+      ...state, expenses: [...state.expenses, action.expenseObj],
     };
   default:
     return state;

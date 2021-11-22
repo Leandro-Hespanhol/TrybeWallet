@@ -4,14 +4,14 @@ import { connect } from 'react-redux';
 
 class Price extends Component {
   render() {
-    const { onInputChange } = this.props;
+    const { onInputChange, value } = this.props;
     return (
       <div>
         <label htmlFor="value-input">
           Valor:
           <input
             name="value"
-            // value={ price }
+            value={ value }
             type="number"
             data-testid="value-input"
             id="value-input"
@@ -23,12 +23,13 @@ class Price extends Component {
   }
 }
 
-const mapStateToProps = (state) => ({
-  value: state.wallet.value,
-});
+// const mapStateToProps = (state) => ({
+//   value: state.wallet.value,
+// });
 
-export default connect(mapStateToProps)(Price);
+export default connect()(Price);
 
 Price.propTypes = {
   onInputChange: PropTypes.func.isRequired,
+  value: PropTypes.string.isRequired,
 };
