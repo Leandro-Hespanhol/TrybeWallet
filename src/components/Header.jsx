@@ -45,6 +45,10 @@ const mapStateToProps = (state) => ({
   currencies: state.wallet.currencies,
 });
 
+// const mapDispatchToProps = (dispatch) => ({
+//   // totalExpenses: () => dispatch(sommationValue()),
+// });
+
 export default connect(mapStateToProps)(Header);
 
 Header.propTypes = {

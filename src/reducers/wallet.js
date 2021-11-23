@@ -1,6 +1,6 @@
 // Esse reducer será responsável por tratar o todas as informações relacionadas as despesas
 
-import { GET_CURRENCY, SAVE_EXPENSE } from '../actions';
+import { DELETE_EXPENSE, GET_CURRENCY, SAVE_EXPENSE, UPDATE_EXPENSES } from '../actions';
 
 const INITIAL_STATE = {
   // price: 0,
@@ -12,8 +12,8 @@ const INITIAL_STATE = {
 };
 
 export default function wallet(state = INITIAL_STATE, action) {
-  // console.log('walletAction', action.expenseObj);
-  // console.log('state', state);
+  // console.log('walletAction', action);
+  // console.log('state', state.expenses);
   switch (action.type) {
   case GET_CURRENCY:
     return {
@@ -23,6 +23,14 @@ export default function wallet(state = INITIAL_STATE, action) {
   case SAVE_EXPENSE:
     return {
       ...state, expenses: [...state.expenses, action.expenseObj],
+    };
+  case DELETE_EXPENSE:
+    return {
+      ...state, expenses: action.ObjRemainder,
+    };
+  case UPDATE_EXPENSES:
+    return {
+      ...state,
     };
   default:
     return state;

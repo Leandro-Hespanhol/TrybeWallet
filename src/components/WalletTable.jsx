@@ -3,12 +3,21 @@ import { connect } from 'react-redux';
 
 import PropTypes from 'prop-types';
 import './WalletTable.css';
+import { deleteExpense } from '../actions';
 
 class WalletTable extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.generateExpense = this.generateExpense.bind(this);
+    this.expenseDeletionButton = this.expenseDeletionButton.bind(this);
   }
+
+  // componentDidUpdate(prevProps) {
+  //   const { expenses } = this.props;
+  //   if (expenses !== prevProps.expenses) {
+  //     this.setState({ expenses });
+  //   }
+  // }
 
   // askValue(currElem) {
   //   const cambio = Object.values(currElem.exchangeRates);
@@ -21,12 +30,18 @@ class WalletTable extends Component {
   //   const name = everyName.find((elem2) => elem2.code === currElem.currency);
   //   return name.name.split('/')[0];
   // }
+  expenseDeletionButton({ target: { id } }) {
+    const { expenses, expenseDeletion } = this.props;
+    const removeExpense = expenses.filter((elem) => Number(elem.id) !== Number(id));
+
+    return expenseDeletion(removeExpense);
+  }
 
   generateExpense() {
     const { expenses } = this.props;
     return (
-      expenses.map((elem, idx) => (
-        <tbody key={ idx }>
+      expenses.map((elem) => (
+        <tbody key={ elem.id } id={ elem.id }>
           <tr className="body-tr">
             <td>{elem.description}</td>
             <td>{elem.tag}</td>
@@ -40,13 +55,22 @@ class WalletTable extends Component {
             </td>
             <td>Real</td>
             <td>
-              <button type="button" data-testid="delete-btn">Editar/Excluir</button>
+              <button
+                type="button"
+                data-testid="delete-btn"
+                id={ elem.id }
+                onClick={ this.expenseDeletionButton }
+              >
+                Editar/Excluir
+              </button>
             </td>
           </tr>
         </tbody>)));
   }
 
   render() {
+    const { expenses } = this.props;
+    console.log('log', expenses);
     return (
       <div>
         <table>
@@ -72,17 +96,24 @@ class WalletTable extends Component {
 
 const mapStateToProps = (state) => ({
   expenses: state.wallet.expenses,
+  totalExpenses: state.wallet.expenses,
 });
 
-export default connect(mapStateToProps)(WalletTable);
+const mapDispatchToProps = (dispatch) => ({
+  expenseDeletion: (obj) => dispatch(deleteExpense(obj)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(WalletTable);
 
 WalletTable.propTypes = {
   expenses: (PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.array,
     PropTypes.object])),
+  expenseDeletion: PropTypes.func,
 };
 
 WalletTable.defaultProps = {
   expenses: [],
+  expenseDeletion: () => {},
 };
