@@ -8,15 +8,15 @@ class WalletTable extends Component {
   constructor() {
     super();
     this.generateExpense = this.generateExpense.bind(this);
-    this.askValue = this.askValue.bind(this);
-    this.currencyName = this.currencyName.bind(this);
+    // this.askValue = this.askValue.bind(this);
+    // this.currencyName = this.currencyName.bind(this);
   }
 
-  askValue(currElem) {
-    const cambio = Object.values(currElem.exchangeRates);
-    const coin = cambio.find((elem2) => elem2.code === currElem.currency);
-    return coin.ask;
-  }
+  // askValue(currElem) {
+  //   const cambio = Object.values(currElem.exchangeRates);
+  //   const coin = cambio.find((elem2) => elem2.code === currElem.currency);
+  //   return coin.ask;
+  // }
 
   // currencyName(currElem) {
   //   const everyName = Object.values(currElem.exchangeRates);
@@ -35,10 +35,12 @@ class WalletTable extends Component {
             <td>{elem.method}</td>
             <td>{`${elem.value}`}</td>
             {/* <td>{this.currencyName(elem)}</td> */}
-            <td>{elem.exchangeRates[elem.currency].name}</td>
-            <td>{`${Number((this.askValue(elem))).toFixed(2)}`}</td>
+            <td>{elem.exchangeRates[elem.currency].name.split('/')[0]}</td>
+            {/* <td>{`${Number((this.askValue(elem))).toFixed(2)}`}</td> */}
+            <td>{Number(elem.exchangeRates[elem.currency].ask).toFixed(2)}</td>
             <td>
-              {`${Number((this.askValue(elem))) * Number(elem.value).toFixed(2)}`}
+              {`${Number(elem.exchangeRates[elem.currency].ask).toFixed(2)
+                * Number(elem.value).toFixed(2)}`}
             </td>
             <td>Real</td>
             <td><button type="button">Editar/Excluir</button></td>
