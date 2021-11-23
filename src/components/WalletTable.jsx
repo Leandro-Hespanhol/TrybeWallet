@@ -10,6 +10,7 @@ class WalletTable extends Component {
     super(props);
     this.generateExpense = this.generateExpense.bind(this);
     this.expenseDeletionButton = this.expenseDeletionButton.bind(this);
+    this.expenseEditButton = this.expenseEditButton.bind(this);
   }
 
   expenseDeletionButton({ target: { id } }) {
@@ -17,6 +18,12 @@ class WalletTable extends Component {
     const removeExpense = expenses.filter((elem) => Number(elem.id) !== Number(id));
 
     return expenseDeletion(removeExpense);
+  }
+
+  expenseEditButton({ target: { id } }) {
+    const { expenses } = this.props;
+    const editExpense = expenses.find((elem) => elem.id === id);
+    console.log(editExpense);
   }
 
   generateExpense() {
@@ -40,7 +47,7 @@ class WalletTable extends Component {
               <button
                 type="button"
                 data-testid="edit-btn"
-                onClick={ console.log('editar') }
+                onClick={ this.expenseEditButton }
               >
                 Editar
               </button>
