@@ -8,8 +8,6 @@ class WalletTable extends Component {
   constructor() {
     super();
     this.generateExpense = this.generateExpense.bind(this);
-    // this.askValue = this.askValue.bind(this);
-    // this.currencyName = this.currencyName.bind(this);
   }
 
   // askValue(currElem) {
@@ -17,7 +15,7 @@ class WalletTable extends Component {
   //   const coin = cambio.find((elem2) => elem2.code === currElem.currency);
   //   return coin.ask;
   // }
-
+  // deixarei essas funções como memória!
   // currencyName(currElem) {
   //   const everyName = Object.values(currElem.exchangeRates);
   //   const name = everyName.find((elem2) => elem2.code === currElem.currency);
@@ -34,9 +32,7 @@ class WalletTable extends Component {
             <td>{elem.tag}</td>
             <td>{elem.method}</td>
             <td>{`${elem.value}`}</td>
-            {/* <td>{this.currencyName(elem)}</td> */}
             <td>{elem.exchangeRates[elem.currency].name.split('/')[0]}</td>
-            {/* <td>{`${Number((this.askValue(elem))).toFixed(2)}`}</td> */}
             <td>{Number(elem.exchangeRates[elem.currency].ask).toFixed(2)}</td>
             <td>
               {`${Number(elem.exchangeRates[elem.currency].ask)
