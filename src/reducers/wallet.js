@@ -1,6 +1,6 @@
 // Esse reducer será responsável por tratar o todas as informações relacionadas as despesas
 
-import { DELETE_EXPENSE, GET_CURRENCY, SAVE_EXPENSE, UPDATE_EXPENSES } from '../actions';
+import { DELETE_EXPENSE, GET_CURRENCY, SAVE_EXPENSE } from '../actions';
 
 const INITIAL_STATE = {
   // price: 0,
