@@ -28,10 +28,6 @@ export default function wallet(state = INITIAL_STATE, action) {
     return {
       ...state, expenses: action.ObjRemainder,
     };
-  case UPDATE_EXPENSES:
-    return {
-      ...state,
-    };
   default:
     return state;
   }
