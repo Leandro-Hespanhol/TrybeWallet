@@ -39,11 +39,13 @@ class WalletTable extends Component {
             {/* <td>{`${Number((this.askValue(elem))).toFixed(2)}`}</td> */}
             <td>{Number(elem.exchangeRates[elem.currency].ask).toFixed(2)}</td>
             <td>
-              {`${Number(elem.exchangeRates[elem.currency].ask).toFixed(2)
+              {`${Number(elem.exchangeRates[elem.currency].ask)
                 * Number(elem.value).toFixed(2)}`}
             </td>
             <td>Real</td>
-            <td><button type="button">Editar/Excluir</button></td>
+            <td>
+              <button type="button" data-testid="delete-btn">Editar/Excluir</button>
+            </td>
           </tr>
         </tbody>)));
   }
