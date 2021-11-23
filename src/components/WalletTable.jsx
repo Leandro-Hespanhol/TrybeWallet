@@ -12,24 +12,6 @@ class WalletTable extends Component {
     this.expenseDeletionButton = this.expenseDeletionButton.bind(this);
   }
 
-  // componentDidUpdate(prevProps) {
-  //   const { expenses } = this.props;
-  //   if (expenses !== prevProps.expenses) {
-  //     this.setState({ expenses });
-  //   }
-  // }
-
-  // askValue(currElem) {
-  //   const cambio = Object.values(currElem.exchangeRates);
-  //   const coin = cambio.find((elem2) => elem2.code === currElem.currency);
-  //   return coin.ask;
-  // }
-  // deixarei essas funções como memória!
-  // currencyName(currElem) {
-  //   const everyName = Object.values(currElem.exchangeRates);
-  //   const name = everyName.find((elem2) => elem2.code === currElem.currency);
-  //   return name.name.split('/')[0];
-  // }
   expenseDeletionButton({ target: { id } }) {
     const { expenses, expenseDeletion } = this.props;
     const removeExpense = expenses.filter((elem) => Number(elem.id) !== Number(id));
@@ -57,11 +39,18 @@ class WalletTable extends Component {
             <td>
               <button
                 type="button"
+                data-testid="edit-btn"
+                onClick={ console.log('editar') }
+              >
+                Editar
+              </button>
+              <button
+                type="button"
                 data-testid="delete-btn"
                 id={ elem.id }
                 onClick={ this.expenseDeletionButton }
               >
-                Editar/Excluir
+                Excluir
               </button>
             </td>
           </tr>
@@ -69,8 +58,6 @@ class WalletTable extends Component {
   }
 
   render() {
-    const { expenses } = this.props;
-    console.log('log', expenses);
     return (
       <div>
         <table>
