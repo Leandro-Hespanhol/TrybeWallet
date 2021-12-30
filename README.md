@@ -14,8 +14,6 @@
   </a>
 </p>
 
-### 🏠 [Homepage](https://leandro-hespanhol.github.io/TrybeWallet/)
-
 ### ✨ [Demo](https://leandro-hespanhol.github.io/TrybeWallet/)
 
 ## Install
@@ -37,7 +35,7 @@ npm run test
 ```
 ## Description
 
-
+REDUX is the core habilite developed on this project. Learning about the store, reducers, actions and working with it on mapStateToProps and mapDispatchToProps was fundamental. Redux looks like a lot to work with, but once the tools are organized it feels like you have super powers over the props, its an amazing framework to manipulate medium to big applications.
 
 ## 🤝 Contributing
 
