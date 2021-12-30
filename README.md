@@ -49,4 +49,4 @@ Give a ⭐️ if this project helped you!
 * LinkedIn: [@Leandro Hespanhol](https://linkedin.com/in/Leandro Hespanhol)
 
 ***
-_This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
+_Got some help witht the README from [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_❤️ 
