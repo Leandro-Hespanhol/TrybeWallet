@@ -11,19 +11,15 @@
 
 ### ✨ [Demo](https://leandro-hespanhol.github.io/TrybeWallet/)
 
-## Install
+## Install, Usage and tests
 
 ```sh
 npm install
 ```
 
-## Usage
-
 ```sh
 npm start
 ```
-
-## Run tests
 
 ```sh
 npm run test
@@ -31,10 +27,6 @@ npm run test
 ## Description
 
 REDUX is the core habilite developed on this project. Learning about the store, reducers, actions and working with it on mapStateToProps and mapDispatchToProps was fundamental. Redux looks like a lot to work with, but once the tools are organized it feels like you have super powers over the props, its an amazing framework to manipulate medium to big applications.
-
-## 🤝 Contributing
-
-Contributions, issues and feature requests are welcome!<br />Feel free to check [issues page](https://github.com/kefranabg/readme-md-generator/issues). You can also take a look at the [contributing guide](https://github.com/Leandro-Hespanhol/TrybeWallet/blob/master/CONTRIBUTING.md).
 
 ## Show your support
 
@@ -46,7 +38,7 @@ Give a ⭐️ if this project helped you!
 
 * Portfolio-Website: https://leandro-hespanhol.github.io/
 * GitHub: [@Leandro-Hespanhol](https://github.com/Leandro-Hespanhol)
-* LinkedIn: [@Leandro Hespanhol](https://linkedin.com/in/Leandro Hespanhol)
+* LinkedIn: [@Leandro Hespanhol](https://www.linkedin.com/in/leandro-jos%C3%A9-ferreira-hespanhol-91b3a2136/)
 
 ***
-_Got some help with the README from [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_❤️ 
+_Got some help with the README from [readme-md-generator](https://github.com/kefranabg/readme-md-generator) ❤️ 
