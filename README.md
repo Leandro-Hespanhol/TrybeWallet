@@ -14,16 +14,9 @@
   </a>
 </p>
 
-> CLI that generates beautiful README.md files.
-
 ### 🏠 [Homepage](https://leandro-hespanhol.github.io/TrybeWallet/)
 
 ### ✨ [Demo](https://leandro-hespanhol.github.io/TrybeWallet/)
-
-## Prerequisites
-
-- npm >=5.5.0
-- node >=9.3.0
 
 ## Install
 
@@ -34,7 +27,7 @@ npm install
 ## Usage
 
 ```sh
-npm run start
+npm start
 ```
 
 ## Run tests
@@ -42,14 +35,9 @@ npm run start
 ```sh
 npm run test
 ```
+## Description
 
-## Author
 
-👤 **Leandro Hespanhol**
-
-* Website: https://leandro-hespanhol.github.io/
-* GitHub: [@Leandro-Hespanhol](https://github.com/Leandro-Hespanhol)
-* LinkedIn: [@Leandro Hespanhol](https://linkedin.com/in/Leandro Hespanhol)
 
 ## 🤝 Contributing
 
@@ -59,10 +47,13 @@ Contributions, issues and feature requests are welcome!<br />Feel free to check 
 
 Give a ⭐️ if this project helped you!
 
-## 📝 License
+## About me
 
-Copyright © 2021 [Leandro Hespanhol](https://github.com/Leandro-Hespanhol).<br />
-This project is [MIT](https://github.com/Leandro-Hespanhol/TrybeWallet/blob/master/LICENSE) licensed.
+👤 **Leandro Hespanhol**
+
+* Portfolio-Website: https://leandro-hespanhol.github.io/
+* GitHub: [@Leandro-Hespanhol](https://github.com/Leandro-Hespanhol)
+* LinkedIn: [@Leandro Hespanhol](https://linkedin.com/in/Leandro Hespanhol)
 
 ***
 _This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
