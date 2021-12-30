@@ -28,7 +28,7 @@ npm run test
 
 This project fetchs an API and calculate exchanges from different coins to Brazilian Coin:
 
-REDUX is the core habilite developed on this project. Learning about the store, reducers, actions and working with it on mapStateToProps and mapDispatchToProps was fundamental. Redux looks like a lot to work with, but once the tools are organized it feels like you have super powers over the props, its an amazing framework to manipulate medium to big applications.
+REDUX is the core habilits developed on this project. Learning about the store, reducers, actions and working with it on mapStateToProps and mapDispatchToProps was fundamental. Redux looks like a lot to work with, but once the tools are organized it feels like you have super powers over the props, its an amazing tool to manipulate medium to big applications.
 
 ## Show your support
 
@@ -43,4 +43,4 @@ Give a ⭐️ if this project helped you!
 * LinkedIn: [@Leandro Hespanhol](https://www.linkedin.com/in/leandro-jos%C3%A9-ferreira-hespanhol-91b3a2136/)
 
 ***
-_Got some help with the README from [readme-md-generator](https://github.com/kefranabg/readme-md-generator) ❤️ 
+Got some help with this README from [readme-md-generator](https://github.com/kefranabg/readme-md-generator) ❤️ 
