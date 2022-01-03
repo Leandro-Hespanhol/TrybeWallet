@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "b37a3443388fd73af1854478e712a2c6",
+    "revision": "8d81c24da0d803f478194dd4ecbd66b6",
     "url": "/TrybeWallet/index.html"
   },
   {
