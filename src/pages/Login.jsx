@@ -56,7 +56,7 @@ class Login extends React.Component {
             onChange={ this.onInputChange }
           />
         </label>
-        <Link to="/carteira">
+        <Link to="/TrybeWallet/carteira">
           <button
             type="submit"
             disabled={ this.isLoginButtonDisabled() }
