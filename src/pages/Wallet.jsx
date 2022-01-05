@@ -64,11 +64,10 @@ class Wallet extends React.Component {
 
   render() {
     const { email } = this.props;
-    const { id, value, tag } = this.state;
+    const { value, tag } = this.state;
     return (
       <div>
         <div className="header-walletBar-div">
-          <span>{id}</span>
           <Header email={ email } />
           <form action="GET" className="expenses-Form">
             <Price onInputChange={ this.onInputChange } value={ value } />
