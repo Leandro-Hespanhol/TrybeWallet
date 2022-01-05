@@ -44,13 +44,13 @@ class WalletTable extends Component {
             </td>
             <td>Real</td>
             <td>
-              <button
+              {/* <button
                 type="button"
                 data-testid="edit-btn"
                 onClick={ this.expenseEditButton }
               >
                 Editar
-              </button>
+              </button> */}
               <button
                 type="button"
                 data-testid="delete-btn"
