@@ -28,7 +28,8 @@ class Login extends React.Component {
   isLoginButtonDisabled() {
     const { email, password } = this.state;
     const CINCO = 5;
-    const emailRegex = /\S+@\S+.\S\.+com/;
+    // const emailRegex = /\S+@\S+.\S\.+com/;
+    const emailRegex = /\S+@\S+./;
     if (password.length > CINCO && emailRegex.test(email)) return false;
     return true;
   }
