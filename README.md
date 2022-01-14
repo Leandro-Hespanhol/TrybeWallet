@@ -15,14 +15,8 @@
 
 ```sh
 npm install
-```
-
-```sh
 npm start
-```
-
-```sh
-npm run test
+npm test
 ```
 ## Description
 
