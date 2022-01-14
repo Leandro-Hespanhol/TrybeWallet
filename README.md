@@ -11,12 +11,11 @@
 
 ### ✨ [Demo](https://leandro-hespanhol.github.io/TrybeWallet/)
 
-## Install, Usage and tests
+## Install and Usage
 
 ```sh
 npm install
 npm start
-npm test
 ```
 ## Description
 
